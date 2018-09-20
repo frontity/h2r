@@ -16,6 +16,5 @@
   ],
   "success": ["@semantic-release/github"],
   "fail": ["@semantic-release/github"],
-  "branch": "master",
-  "npmPublish": false
+  "branch": "master"
 }
