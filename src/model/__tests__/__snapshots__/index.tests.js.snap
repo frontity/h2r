@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`H2R Store priority values are correct 1`] = `
+Object {
+  "high": 10,
+  "low": 30,
+  "medium": 20,
+}
+`;
