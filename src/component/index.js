@@ -14,23 +14,41 @@ class H2R extends Component {
     extraProps: PropTypes.shape({}),
     stores: PropTypes.shape({}).isRequired,
     theme: PropTypes.shape({}).isRequired,
+    debug: PropTypes.bool,
   };
 
   static defaultProps = {
     processors: [],
     extraProps: {},
+    debug: false,
   };
 
-  constructor(props) {
-    super(props);
-    this.process = this.process.bind(this);
-    this.handleNode = this.handleNode.bind(this);
+  constructor() {
+    super();
+    this.performanceMarks = this.performanceMarks.bind(this);
+    this.applyProcessors = this.applyProcessors.bind(this);
     this.handleNodes = this.handleNodes.bind(this);
+    this.handleNode = this.handleNode.bind(this);
   }
 
-  process(node) {
+  performanceMarks(name, func, ...args) {
+    const { debug } = this.props;
+
+    if (!(debug && typeof window !== 'undefined')) return func(...args);
+
+    const start = `${name}-start`;
+    const end = `${name}-end`;
+
+    window.performance.mark(start);
+    const toReturn = func(...args);
+    window.performance.mark(end);
+    window.performance.measure(`🔥 H2R [${name}]`, start, end);
+
+    return toReturn;
+  }
+
+  applyProcessors(node, htmlTree) {
     const { processors, extraProps, stores, theme } = this.props;
-    const { htmlTree } = this;
 
     const payload = { extraProps, stores, theme, htmlTree };
 
@@ -68,11 +86,11 @@ class H2R extends Component {
     return false;
   }
 
-  handleNodes(nodes) {
+  handleNodes(nodes, htmlTree = nodes) {
     if (!nodes) return null;
 
     for (let i = 0; i < nodes.length; i += 1) {
-      nodes[i] = this.handleNode(nodes[i], i);
+      nodes[i] = this.handleNode(nodes[i], i, htmlTree);
     }
 
     const compacted = compact(nodes);
@@ -81,8 +99,8 @@ class H2R extends Component {
     return null;
   }
 
-  handleNode(node, index) {
-    const isRemoved = this.process(node);
+  handleNode(node, index, htmlTree) {
+    const isRemoved = this.applyProcessors(node, htmlTree);
 
     // Return nothing for 'comment' nodes
     if (isRemoved || node.type === 'comment') return null;
@@ -93,33 +111,15 @@ class H2R extends Component {
     // Convert 'element' nodes to React
     return (
       <node.component {...node.props} key={index}>
-        {this.handleNodes(node.children)}
+        {this.handleNodes(node.children, htmlTree)}
       </node.component>
     );
   }
 
   render() {
-    // const isBrowser = typeof window !== 'undefined';
-
-    // if (isBrowser) {
-    //   window.performance.mark('parse');
-    // }
-
-    this.htmlTree = parse(this.props.html);
-
-    // if (isBrowser) {
-    //   window.performance.mark('handle');
-    //   window.performance.measure('🔥 h2r [parse]', 'parse', 'handle');
-    // }
-
-    const toReturn = this.handleNodes(this.htmlTree);
-
-    // if (isBrowser) {
-    //   window.performance.mark('end');
-    //   window.performance.measure('🔥 h2r [handle]', 'handle', 'end');
-    // }
-
-    return toReturn;
+    const { html } = this.props;
+    const htmlTree = this.performanceMarks('parse', () => parse(html));
+    return this.performanceMarks('handle', () => this.handleNodes(htmlTree));
   }
 }
 
