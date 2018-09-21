@@ -18,6 +18,10 @@
   "keywords": [],
   "author": "David Arenas (david@frontity.com)",
   "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/frontity/h2r/issues"
+  },
+  "homepage": "https://github.com/frontity/h2r#readme",
   "peerDependencies": {
     "he": "^1.1.1",
     "himalaya": "^1.1.0",
