@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/frontity/h2r/compare/v1.0.1...v1.0.2) (2018-09-21)
+
+
+### Bug Fixes
+
+* **package:** add bug and homepage fields ([6202e75](https://github.com/frontity/h2r/commit/6202e75))
+
 ## [1.0.1](https://github.com/frontity/h2r/compare/v1.0.0...v1.0.1) (2018-09-21)
 
 
