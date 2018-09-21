@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/frontity/h2r/compare/v1.0.2...v1.1.0) (2018-09-21)
+
+
+### Features
+
+* **package:** export Model and Component from package root ([81cd02b](https://github.com/frontity/h2r/commit/81cd02b))
+
 ## [1.0.2](https://github.com/frontity/h2r/compare/v1.0.1...v1.0.2) (2018-09-21)
 
 
