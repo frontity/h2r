@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/frontity/h2r/compare/v1.2.0...v1.2.1) (2018-09-24)
+
+
+### Bug Fixes
+
+* **index:** fix components export ([f4be2e8](https://github.com/frontity/h2r/commit/f4be2e8))
+
 # [1.2.0](https://github.com/frontity/h2r/compare/v1.1.0...v1.2.0) (2018-09-24)
 
 
