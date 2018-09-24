@@ -26,7 +26,7 @@ export default {
     (props.className.split(' ').includes('twitter-tweet') ||
       props.className.split(' ').includes('twitter-video')) &&
     !ignore,
-  process: element => {
+  process: (element, { placeholder }) => {
     const { ...rest } = element;
     const height = 'auto';
     const width = '100%';
@@ -34,7 +34,14 @@ export default {
 
     return {
       component: LazyTweet,
-      props: { key: `tweet${tweetId}`, width, height, throttle: 50, tweetId },
+      props: {
+        key: `tweet${tweetId}`,
+        width,
+        height,
+        throttle: 50,
+        tweetId,
+        placeholder,
+      },
       children: [{ ...rest, ignore: true }],
     };
   },

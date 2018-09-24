@@ -2,5 +2,8 @@ import LazyAudio from '../components/LazyAudio';
 
 export default {
   test: ({ component }) => component === 'audio',
-  process: () => ({ component: LazyAudio }),
+  process: ({ props }, { placeholder }) => ({
+    component: LazyAudio,
+    props: { ...props, placeholder },
+  }),
 };
