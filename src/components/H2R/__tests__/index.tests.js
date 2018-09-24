@@ -3,7 +3,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { types } from 'mobx-state-tree';
 import { Provider as MobxProvider } from 'mobx-react';
-import { ThemeProvider } from 'styled-components';
 import H2R from '..';
 
 // Test cases (h2r):
@@ -54,9 +53,7 @@ const renderH2R = processors => {
   return renderer
     .create(
       <MobxProvider stores={{ theme, someValue: 'from store' }}>
-        <ThemeProvider theme={{ someValue: 'from theme' }}>
-          <H2R html={html} extraProps={{ someValue: 'from extraProps' }} />
-        </ThemeProvider>
+        <H2R html={html} payload={{ someValue: 'from payload' }} />
       </MobxProvider>,
     )
     .toJSON();
@@ -118,19 +115,14 @@ const addNextNode = {
   },
 };
 
-const valueFromExtraProps = {
+const valueFromPayload = {
   test: ({ props }) => props.id === 'paragraph',
-  process: (_, { extraProps }) => ({ props: { id: extraProps.someValue } }),
+  process: (_, { someValue }) => ({ props: { id: someValue } }),
 };
 
 const valueFromStores = {
   test: ({ props }) => props.id === 'paragraph',
   process: (_, { stores }) => ({ props: { id: stores.someValue } }),
-};
-
-const valueFromTheme = {
-  test: ({ props }) => props.id === 'paragraph',
-  process: (_, { theme }) => ({ props: { id: theme.someValue } }),
 };
 
 const processFails = {
@@ -193,16 +185,12 @@ describe('H2R', () => {
     expect(renderH2R([addNextNode])).toMatchSnapshot();
   });
 
-  test('with a processor that uses extraProps', () => {
-    expect(renderH2R([valueFromExtraProps])).toMatchSnapshot();
+  test('with a processor that uses payload', () => {
+    expect(renderH2R([valueFromPayload])).toMatchSnapshot();
   });
 
   test('with a processor that uses stores', () => {
     expect(renderH2R([valueFromStores])).toMatchSnapshot();
-  });
-
-  test('with a processor that uses theme', () => {
-    expect(renderH2R([valueFromTheme])).toMatchSnapshot();
   });
 
   test('with two or more processors', () => {

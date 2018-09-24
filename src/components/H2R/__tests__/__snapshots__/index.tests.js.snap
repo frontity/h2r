@@ -239,10 +239,10 @@ Array [
 ]
 `;
 
-exports[`H2R with a processor that uses extraProps 1`] = `
+exports[`H2R with a processor that uses payload 1`] = `
 Array [
   <p
-    id="from extraProps"
+    id="from payload"
   >
     
   This is an html 
@@ -274,37 +274,6 @@ exports[`H2R with a processor that uses stores 1`] = `
 Array [
   <p
     id="from store"
-  >
-    
-  This is an html 
-    <span>
-      example
-    </span>
-     for testing purposes.
-
-  </p>,
-  <div
-    className="hello"
-  >
-    <img
-      src="http://example.com/img.jpg"
-    />
-  </div>,
-  <audio
-    autoPlay={true}
-  >
-    <source
-      src="example.ogg"
-      type="audio/ogg"
-    />
-  </audio>,
-]
-`;
-
-exports[`H2R with a processor that uses theme 1`] = `
-Array [
-  <p
-    id="from theme"
   >
     
   This is an html 

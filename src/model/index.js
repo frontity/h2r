@@ -18,7 +18,7 @@ export default types
     },
   }))
   .actions(self => ({
-    addProcessor(processor, priority = 'low') {
+    addProcessor(processor, priority = 'low', options = {}) {
       let priorityValue;
       if (typeof priority === 'string') {
         priorityValue = priorityValues[priority];
@@ -33,6 +33,6 @@ export default types
         );
       }
 
-      self.processors.push({ priority: priorityValue, ...processor });
+      self.processors.push({ priority: priorityValue, options, ...processor });
     },
   }));
