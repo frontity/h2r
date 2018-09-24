@@ -16,6 +16,9 @@ const attrMap = { ...htmlMap, ...svgMap };
 //   children: [],
 //   parent: Element,
 // }
+// [*] As indicated in the specification mentioned before,
+// a standalone attribute name such as 'disabled' has its value set to 'null',
+// so we convert that value to 'true'.
 const adaptNode = (element, parent) => {
   const { type, tagName, attributes, children } = element;
 
@@ -32,10 +35,10 @@ const adaptNode = (element, parent) => {
     component: tagName,
     props: attributes.reduce((attrs, { key, value }) => {
       if (key === 'class') {
-        attrs.className = value;
+        attrs.className = value === null ? true : value; // [*]
       } else if (!/^on/.test(key)) {
         const camelCaseKey = attrMap[key.toLowerCase()];
-        attrs[camelCaseKey || key] = value;
+        attrs[camelCaseKey || key] = value === null ? true : value; // [*]
       }
       return attrs;
     }, {}),
