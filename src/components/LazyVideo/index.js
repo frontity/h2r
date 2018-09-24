@@ -5,8 +5,16 @@ import { inject } from 'mobx-react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import LazyLoad from '@frontity/lazyload';
+import Placeholder from '../Placeholder';
 
-const LazyVideo = ({ children, width, height, isAmp, attributes }) => {
+const LazyVideo = ({
+  children,
+  width,
+  height,
+  isAmp,
+  attributes,
+  placeholder,
+}) => {
   const { autoPlay, loop, className, ...filteredAttributes } = attributes;
 
   if (isAmp) {
@@ -33,7 +41,7 @@ const LazyVideo = ({ children, width, height, isAmp, attributes }) => {
 
   return (
     <Container styles={{ height, width }}>
-      <div className="lazy-video-placeholder" />
+      <Placeholder>{placeholder}</Placeholder>
       <LazyLoad
         elementType="span"
         offsetVertical={2000}
@@ -62,6 +70,11 @@ LazyVideo.propTypes = {
   height: PropTypes.string.isRequired,
   isAmp: PropTypes.bool.isRequired,
   attributes: PropTypes.shape({}).isRequired,
+  placeholder: PropTypes.node,
+};
+
+LazyVideo.defaultProps = {
+  placeholder: null,
 };
 
 export default inject(({ stores: { build } }) => ({

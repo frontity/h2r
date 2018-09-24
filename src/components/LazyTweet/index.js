@@ -4,6 +4,7 @@ import { inject } from 'mobx-react';
 import { Helmet } from 'react-helmet';
 import LazyLoad from '@frontity/lazyload';
 import styled from 'styled-components';
+import Placeholder from '../Placeholder';
 
 class LazyTweet extends Component {
   static propTypes = {
@@ -12,6 +13,11 @@ class LazyTweet extends Component {
     height: PropTypes.string.isRequired,
     isAmp: PropTypes.bool.isRequired,
     tweetId: PropTypes.string.isRequired,
+    placeholder: PropTypes.node,
+  };
+
+  static defaultProps = {
+    placeholder: null,
   };
 
   constructor() {
@@ -50,7 +56,7 @@ class LazyTweet extends Component {
   }
 
   render() {
-    const { children, width, height, tweetId, isAmp } = this.props;
+    const { children, width, height, tweetId, isAmp, placeholder } = this.props;
     const { loaded } = this.state;
 
     if (isAmp) {
@@ -85,7 +91,7 @@ class LazyTweet extends Component {
           this.ref = node;
         }}
       >
-        {!loaded && <div className="lazy-tweet-placeholder" />}
+        {!loaded && <Placeholder>{placeholder}</Placeholder>}
         <StyledLazyLoad
           offsetVertical={2000}
           offsetHorizontal={-10}

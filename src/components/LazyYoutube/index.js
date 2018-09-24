@@ -4,8 +4,16 @@ import { inject } from 'mobx-react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import LazyLoad from '@frontity/lazyload';
+import Placeholder from '../Placeholder';
 
-const LazyYoutube = ({ width, height, isAmp, youtubeId, attributes }) => {
+const LazyYoutube = ({
+  width,
+  height,
+  isAmp,
+  youtubeId,
+  attributes,
+  placeholder,
+}) => {
   if (isAmp) {
     return (
       youtubeId && [
@@ -25,7 +33,7 @@ const LazyYoutube = ({ width, height, isAmp, youtubeId, attributes }) => {
 
   return (
     <Container styles={{ height, width }}>
-      <div className="lazy-youtube-placeholder" />
+      <Placeholder>{placeholder}</Placeholder>
       <LazyLoad
         elementType="span"
         offsetVertical={2000}
@@ -44,10 +52,12 @@ LazyYoutube.propTypes = {
   youtubeId: PropTypes.string,
   isAmp: PropTypes.bool.isRequired,
   attributes: PropTypes.shape({}).isRequired,
+  placeholder: PropTypes.node,
 };
 
 LazyYoutube.defaultProps = {
   youtubeId: null,
+  placeholder: null,
 };
 
 export default inject(({ stores: { build } }) => ({

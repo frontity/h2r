@@ -4,6 +4,7 @@ import { inject } from 'mobx-react';
 import { Helmet } from 'react-helmet';
 import LazyLoad from '@frontity/lazyload';
 import styled from 'styled-components';
+import Placeholder from '../Placeholder';
 
 class LazyInstagram extends Component {
   static propTypes = {
@@ -12,6 +13,11 @@ class LazyInstagram extends Component {
     height: PropTypes.string.isRequired,
     instagramId: PropTypes.string.isRequired,
     isAmp: PropTypes.bool.isRequired,
+    placeholder: PropTypes.node,
+  };
+
+  static defaultProps = {
+    placeholder: null,
   };
 
   constructor() {
@@ -51,7 +57,15 @@ class LazyInstagram extends Component {
   }
 
   render() {
-    const { children, width, height, isAmp, instagramId } = this.props;
+    const {
+      children,
+      width,
+      height,
+      isAmp,
+      instagramId,
+      placeholder,
+    } = this.props;
+
     const { loaded } = this.state;
 
     if (isAmp) {
@@ -87,7 +101,7 @@ class LazyInstagram extends Component {
           this.ref = node;
         }}
       >
-        {!loaded && <div className="lazy-instagram-placeholder" />}
+        {!loaded && <Placeholder>{placeholder}</Placeholder>}
         <StyledLazyLoad
           offsetVertical={2000}
           offsetHorizontal={-10}

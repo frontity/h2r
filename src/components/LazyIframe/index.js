@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { inject } from 'mobx-react';
 import { Helmet } from 'react-helmet';
 import LazyLoad from '@frontity/lazyload';
+import Placeholder from '../Placeholder';
 
 class LazyIframe extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class LazyIframe extends Component {
   }
 
   render() {
-    const { attributes, isAmp } = this.props;
+    const { attributes, isAmp, placeholder } = this.props;
     const { width, height } = this.state;
 
     const {
@@ -79,6 +80,7 @@ class LazyIframe extends Component {
 
     return (
       <Container styles={{ width, height }} className="iframe">
+        <Placeholder>{placeholder}</Placeholder>
         <LazyLoad
           elementType="span"
           offsetVertical={2000}
@@ -107,6 +109,11 @@ LazyIframe.propTypes = {
   height: PropTypes.string.isRequired,
   attributes: PropTypes.shape({}).isRequired,
   isAmp: PropTypes.bool.isRequired,
+  placeholder: PropTypes.node,
+};
+
+LazyIframe.defaultProps = {
+  placeholder: null,
 };
 
 export default inject(({ stores: { build } }) => ({
