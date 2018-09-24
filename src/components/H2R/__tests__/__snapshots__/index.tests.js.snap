@@ -21,6 +21,14 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -44,6 +52,14 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -67,6 +83,14 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -93,6 +117,14 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -110,6 +142,7 @@ Array [
      for testing purposes.
 
   </p>,
+  "[class] attribute",
   <div
     className="hello"
   >
@@ -117,6 +150,15 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  "[autoplay] standalone attribute ([key/value] should be [autoPlay/true]",
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -128,6 +170,14 @@ Array [
   <div
     className="hello"
   />,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -147,6 +197,14 @@ Array [
   <div
     className="hello"
   />,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -170,6 +228,14 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -193,6 +259,14 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -216,6 +290,14 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -239,6 +321,14 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -262,6 +352,14 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -279,9 +377,19 @@ Array [
      for testing purposes.
 
   </blockquote>,
+  "[class] attribute",
   <div
     className="hello"
   />,
+  "[autoplay] standalone attribute ([key/value] should be [autoPlay/true]",
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -306,6 +414,14 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
 
@@ -329,5 +445,13 @@ Array [
       src="http://example.com/img.jpg"
     />
   </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
 ]
 `;
