@@ -1,15 +1,16 @@
 import audio from './audio';
 import facebook from './facebook';
 import iframe from './iframe';
-import index from './index';
 import instagram from './instagram';
 import removeAmpColWidth from './removeAmpColWidth';
 import removeAmpIds from './removeAmpIds';
 import removeAmpListTypes from './removeAmpListTypes';
+import removeBodyTag from './removeBodyTag';
 import removeContentAds from './removeContentAds';
-import removeDoctypeHeadTags from './removeDoctypeHeadTags';
+import removeDoctypeTag from './removeDoctypeTag';
+import removeHeadTag from './removeHeadTag';
 import removeHidden from './removeHidden';
-import removeHtmlBodyTags from './removeHtmlBodyTags';
+import removeHtmlTag from './removeHtmlTag';
 import removeInlineStyle from './removeInlineStyle';
 import removeScript from './removeScript';
 import removeTagStyle from './removeTagStyle';
@@ -22,15 +23,16 @@ export {
   audio,
   facebook,
   iframe,
-  index,
   instagram,
   removeAmpColWidth,
   removeAmpIds,
   removeAmpListTypes,
+  removeBodyTag,
   removeContentAds,
-  removeDoctypeHeadTags,
+  removeDoctypeTag,
+  removeHeadTag,
   removeHidden,
-  removeHtmlBodyTags,
+  removeHtmlTag,
   removeInlineStyle,
   removeScript,
   removeTagStyle,
