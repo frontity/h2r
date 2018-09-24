@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/frontity/h2r/compare/v1.2.1...v1.3.0) (2018-09-24)
+
+
+### Features
+
+* **components:** add placeholder prop to some lazy components ([9181b5c](https://github.com/frontity/h2r/commit/9181b5c))
+* **h2r:** rename extraProps to payload and get options from processors ([6b9bb65](https://github.com/frontity/h2r/commit/6b9bb65))
+* **processors:** get placeholder from payload ([b7c40b6](https://github.com/frontity/h2r/commit/b7c40b6))
+
 ## [1.2.1](https://github.com/frontity/h2r/compare/v1.2.0...v1.2.1) (2018-09-24)
 
 
