@@ -125,6 +125,12 @@ const valueFromStores = {
   process: (_, { stores }) => ({ props: { id: stores.someValue } }),
 };
 
+const valueFromOptions = {
+  test: ({ props }) => props.id === 'paragraph',
+  process: (_, { optionsValue }) => ({ props: { id: optionsValue } }),
+  options: { optionsValue: 'fromOptions' },
+};
+
 const processFails = {
   test: ({ props }) => props.id === 'paragraph',
   process: () => {
@@ -191,6 +197,10 @@ describe('H2R', () => {
 
   test('with a processor that uses stores', () => {
     expect(renderH2R([valueFromStores])).toMatchSnapshot();
+  });
+
+  test('with a processor that gets a prop from options', () => {
+    expect(renderH2R([valueFromOptions])).toMatchSnapshot();
   });
 
   test('with two or more processors', () => {

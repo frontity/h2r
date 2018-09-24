@@ -162,6 +162,37 @@ Array [
 ]
 `;
 
+exports[`H2R with a processor that gets a prop from options 1`] = `
+Array [
+  <p
+    id="fromOptions"
+  >
+    
+  This is an html 
+    <span>
+      example
+    </span>
+     for testing purposes.
+
+  </p>,
+  <div
+    className="hello"
+  >
+    <img
+      src="http://example.com/img.jpg"
+    />
+  </div>,
+  <audio
+    autoPlay={true}
+  >
+    <source
+      src="example.ogg"
+      type="audio/ogg"
+    />
+  </audio>,
+]
+`;
+
 exports[`H2R with a processor that removes children 1`] = `
 Array [
   <p
