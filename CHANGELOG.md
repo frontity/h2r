@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/frontity/h2r/compare/v1.1.0...v1.2.0) (2018-09-24)
+
+
+### Bug Fixes
+
+* **h2r:** handle standalone attributes properly ([9f83d53](https://github.com/frontity/h2r/commit/9f83d53))
+
+
+### Features
+
+* **processors:** add common processors and their components ([07cfe16](https://github.com/frontity/h2r/commit/07cfe16))
+
 # [1.1.0](https://github.com/frontity/h2r/compare/v1.0.2...v1.1.0) (2018-09-21)
 
 
