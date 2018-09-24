@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export default styled.span`
+export default styled.span.attrs({
+  className: 'h2r-lazy-placeholder',
+})`
   position: absolute;
   top: 0;
   left: 0;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Placeholder has a class named "lazy-placeholder" 1`] = `
+<span
+  className="sc-bdVaJa h2r-lazy-placeholder kfngWY"
+/>
+`;
