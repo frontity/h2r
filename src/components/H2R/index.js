@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { inject } from 'mobx-react';
-import { compose } from 'recompose';
-import { withTheme } from 'styled-components';
 import { compact } from 'lodash';
 import parse from './parse';
 
@@ -11,15 +9,14 @@ class H2R extends Component {
   static propTypes = {
     html: PropTypes.string.isRequired,
     processors: PropTypes.arrayOf(PropTypes.shape({})),
-    extraProps: PropTypes.shape({}),
+    payload: PropTypes.shape({}),
     stores: PropTypes.shape({}).isRequired,
-    theme: PropTypes.shape({}).isRequired,
     debug: PropTypes.bool,
   };
 
   static defaultProps = {
     processors: [],
-    extraProps: {},
+    payload: {},
     debug: false,
   };
 
@@ -48,17 +45,22 @@ class H2R extends Component {
   }
 
   applyProcessors(node, htmlTree) {
-    const { processors, extraProps, stores, theme } = this.props;
-
-    const payload = { extraProps, stores, theme, htmlTree };
+    const { processors, stores, payload: fromProps } = this.props;
 
     for (let i = 0; i < processors.length; i += 1) {
-      const proc = processors[i];
+      const { options, test, process } = processors[i];
+
+      const payload = {
+        htmlTree,
+        stores,
+        ...options,
+        ...fromProps,
+      };
 
       // Test processor function
       let isMatch = false;
       try {
-        isMatch = proc.test(node, payload);
+        isMatch = test(node, payload);
       } catch (e) {
         // ignore error
       }
@@ -66,7 +68,7 @@ class H2R extends Component {
       // Apply processor function
       if (isMatch) {
         try {
-          const processed = proc.process(node, payload);
+          const processed = process(node, payload);
 
           // Return true if was removed
           if (!processed) return true;
@@ -123,10 +125,7 @@ class H2R extends Component {
   }
 }
 
-export default compose(
-  withTheme,
-  inject(({ stores }) => {
-    const processors = stores.theme.h2r.processorsByPriority;
-    return { stores, processors };
-  }),
-)(H2R);
+export default inject(({ stores }) => {
+  const processors = stores.theme.h2r.processorsByPriority;
+  return { stores, processors };
+})(H2R);

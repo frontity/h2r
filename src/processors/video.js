@@ -2,7 +2,7 @@ import LazyVideo from '../components/LazyVideo';
 
 export default {
   test: ({ component }) => component === 'video',
-  process: element => {
+  process: (element, { placeholder }) => {
     const { props } = element;
 
     let height;
@@ -20,6 +20,7 @@ export default {
         height,
         throttle: 50,
         attributes: props,
+        placeholder,
       },
     };
   },

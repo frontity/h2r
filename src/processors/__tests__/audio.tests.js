@@ -39,7 +39,9 @@ describe('H2R › Audio processor', () => {
     expect(processor.test(audio)).toBeTruthy();
   });
   test('process valid elements', () => {
-    const { component } = processor.process(audio);
+    const placeholder = 'placeholder';
+    const { component, props } = processor.process(audio, { placeholder });
     expect(component).toBe(LazyAudio);
+    expect(props.placeholder).toBe(placeholder);
   });
 });

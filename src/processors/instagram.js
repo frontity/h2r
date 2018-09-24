@@ -27,7 +27,7 @@ export default {
     props.className &&
     props.className.split(' ').includes('instagram-media') &&
     !ignore,
-  process: element => {
+  process: (element, { placeholder }) => {
     const { props, ...rest } = element;
     const height = 'auto';
     const width = '100%';
@@ -52,6 +52,7 @@ export default {
         height,
         throttle: 50,
         instagramId,
+        placeholder,
       },
       children: [{ ...rest, props: newprops, ignore: true }],
     };

@@ -4,7 +4,7 @@ export default {
   test: ({ component, props }) =>
     component === 'iframe' &&
     (/youtube/.test(props.src) || /youtube/.test(props['data-src'])),
-  process: element => {
+  process: (element, { placeholder }) => {
     const { props } = element;
 
     let height;
@@ -31,6 +31,7 @@ export default {
         height,
         youtubeId,
         attributes: props,
+        placeholder,
       },
       children: null,
     };

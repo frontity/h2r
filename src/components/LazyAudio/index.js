@@ -5,8 +5,9 @@ import { inject } from 'mobx-react';
 import { Helmet } from 'react-helmet';
 import LazyLoad from '@frontity/lazyload';
 import styled from 'styled-components';
+import Placeholder from '../Placeholder';
 
-const LazyAudio = ({ isAmp, attributes, children }) => {
+const LazyAudio = ({ isAmp, attributes, children, placeholder }) => {
   if (isAmp) {
     return (
       <Fragment>
@@ -28,7 +29,7 @@ const LazyAudio = ({ isAmp, attributes, children }) => {
 
   return (
     <Container>
-      <div className="lazy-audio-placeholder" />
+      <Placeholder>{placeholder}</Placeholder>
       <LazyLoad
         elementType="span"
         offsetVertical={2000}
@@ -48,6 +49,7 @@ LazyAudio.propTypes = {
   height: PropTypes.string.isRequired,
   isAmp: PropTypes.bool.isRequired,
   attributes: PropTypes.shape({}).isRequired,
+  placeholder: PropTypes.node,
   children: PropTypes.oneOfType([
     PropTypes.shape({}),
     PropTypes.arrayOf(PropTypes.shape({})),
@@ -55,6 +57,7 @@ LazyAudio.propTypes = {
 };
 
 LazyAudio.defaultProps = {
+  placeholder: null,
   children: null,
 };
 
