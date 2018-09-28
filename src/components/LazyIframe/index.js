@@ -15,8 +15,10 @@ class LazyIframe extends Component {
     this.state = {
       width: props.width,
       height: props.height,
+      loaded: false,
     };
 
+    this.handleContentVisible = this.handleContentVisible.bind(this);
     this.handleMessage = this.handleMessage.bind(this);
   }
 
@@ -26,6 +28,12 @@ class LazyIframe extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('message', this.handleMessage);
+  }
+
+  handleContentVisible() {
+    this.setState({
+      loaded: true,
+    });
   }
 
   handleMessage({ data, source }) {
@@ -38,7 +46,7 @@ class LazyIframe extends Component {
 
   render() {
     const { attributes, isAmp, placeholder } = this.props;
-    const { width, height } = this.state;
+    const { width, height, loaded } = this.state;
 
     const {
       title,
@@ -80,12 +88,13 @@ class LazyIframe extends Component {
 
     return (
       <Container styles={{ width, height }} className="iframe">
-        <Placeholder>{placeholder}</Placeholder>
+        {!loaded && <Placeholder>{placeholder}</Placeholder>}
         <LazyLoad
           elementType="span"
           offsetVertical={2000}
           offsetHorizontal={-10}
           throttle={50}
+          onContentVisible={this.handleContentVisible}
         >
           <iframe
             title={title || ''}
@@ -121,6 +130,7 @@ export default inject(({ stores: { build } }) => ({
 }))(LazyIframe);
 
 const Container = styled.span`
+  position: relative;
   display: block;
   height: ${({ styles }) => styles.height};
   width: ${({ styles }) => styles.width};
