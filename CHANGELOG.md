@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/frontity/h2r/compare/v1.3.1...v1.3.2) (2018-09-28)
+
+
+### Bug Fixes
+
+* **iframe:** fix placeholder in iframe component ([822c5b9](https://github.com/frontity/h2r/commit/822c5b9))
+
 ## [1.3.1](https://github.com/frontity/h2r/compare/v1.3.0...v1.3.1) (2018-09-24)
 
 
