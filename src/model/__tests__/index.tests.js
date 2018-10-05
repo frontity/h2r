@@ -81,4 +81,44 @@ describe('H2R Store', () => {
     expect(procs[4].test).toBe(processorLow.test);
     expect(procs[4].process).toBe(processorLow.process);
   });
+  test('maintain insertion order for processors with same priority', () => {
+    // Generate six processors
+    const processors = Array(6)
+      .fill(0)
+      .map(getProcessor);
+
+    // Array of priorities
+    const priorities = [30, 30, 20, 20, 10, 10];
+
+    // Add processors with their respective priority
+    processors.forEach((proc, i) => {
+      store.addProcessor(proc, priorities[i]);
+    });
+
+    const [
+      processorLow1,
+      processorLow2,
+      processorMedium1,
+      processorMedium2,
+      processorHigh1,
+      processorHigh2,
+    ] = processors;
+
+    const { processorsByPriority: sorted } = store;
+
+    expect(sorted).toHaveLength(6);
+
+    expect(sorted[0].test).toBe(processorHigh1.test);
+    expect(sorted[0].process).toBe(processorHigh1.process);
+    expect(sorted[1].test).toBe(processorHigh2.test);
+    expect(sorted[1].process).toBe(processorHigh2.process);
+    expect(sorted[2].test).toBe(processorMedium1.test);
+    expect(sorted[2].process).toBe(processorMedium1.process);
+    expect(sorted[3].test).toBe(processorMedium2.test);
+    expect(sorted[3].process).toBe(processorMedium2.process);
+    expect(sorted[4].test).toBe(processorLow1.test);
+    expect(sorted[4].process).toBe(processorLow1.process);
+    expect(sorted[5].test).toBe(processorLow2.test);
+    expect(sorted[5].process).toBe(processorLow2.process);
+  });
 });
