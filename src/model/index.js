@@ -1,5 +1,6 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 import { types } from 'mobx-state-tree';
+import sortBy from 'lodash.sortby';
 
 export const priorityValues = {
   high: 10,
@@ -14,7 +15,7 @@ export default types
   }))
   .views(self => ({
     get processorsByPriority() {
-      return self.processors.sort((p1, p2) => p1.priority - p2.priority);
+      return sortBy(self.processors, [({ priority }) => priority]);
     },
   }))
   .actions(self => ({
