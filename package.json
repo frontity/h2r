@@ -82,5 +82,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/frontity/h2r.git"
+  },
+  "dependencies": {
+    "lodash.sortby": "^4.7.0"
   }
 }
