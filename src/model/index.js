@@ -1,6 +1,6 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 import { types } from 'mobx-state-tree';
-import sortBy from 'lodash.sortby';
+import { sortBy } from 'lodash-es';
 
 export const priorityValues = {
   high: 10,

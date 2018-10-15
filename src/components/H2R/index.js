@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { inject } from 'mobx-react';
-import { compact } from 'lodash';
+import { compact } from 'lodash-es';
 import parse from './parse';
 
 class H2R extends Component {
