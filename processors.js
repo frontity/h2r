@@ -1,1 +1,1 @@
-module.exports = require('./lib/processors');
+export * from './src/processors';
