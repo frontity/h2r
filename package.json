@@ -15,6 +15,10 @@
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frontity/h2r.git"
+  },
   "keywords": [],
   "author": "David Arenas (david@frontity.com)",
   "license": "Apache-2.0",
@@ -23,10 +27,10 @@
   },
   "homepage": "https://github.com/frontity/h2r#readme",
   "peerDependencies": {
-    "@frontity/lazyload": "^1.0.2",
+    "@frontity/lazyload": "^1.0.12",
     "he": "^1.1.1",
     "himalaya": "^1.1.0",
-    "mobx": "^5.1.2",
+    "mobx": "^4.5.2",
     "mobx-react": "^5.2.8",
     "mobx-state-tree": "^3.3.0",
     "prop-types": "^15.5.8",
@@ -44,11 +48,11 @@
     "@babel/preset-react": "^7.0.0-beta.51",
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.1",
-    "@frontity/lazyload": "^1.0.2",
-    "@semantic-release/changelog": "^2.0.2",
-    "@semantic-release/git": "^5.0.0",
-    "@semantic-release/github": "^4.2.17",
-    "@semantic-release/npm": "^3.3.1",
+    "@frontity/lazyload": "^1.0.12",
+    "@semantic-release/changelog": "^3.0.1",
+    "@semantic-release/git": "^7.0.5",
+    "@semantic-release/github": "^5.2.0",
+    "@semantic-release/npm": "^5.0.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "commitizen": "^2.10.1",
@@ -66,7 +70,7 @@
     "jest": "^23.1.0",
     "lint-staged": "^7.2.0",
     "lodash": "^4.17.11",
-    "mobx": "^5.1.2",
+    "mobx": "^4.5.2",
     "mobx-react": "^5.2.8",
     "mobx-state-tree": "^3.3.0",
     "prettier": "^1.13.5",
@@ -75,13 +79,9 @@
     "react-helmet": "^5.2.0",
     "react-test-renderer": "^16.5.2",
     "recompose": "^0.30.0",
-    "semantic-release": "^15.9.16",
+    "semantic-release": "^15.10.5",
     "styled-components": "^4.0.0-beta.1",
-    "travis-deploy-once": "^5.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/frontity/h2r.git"
+    "travis-deploy-once": "^5.0.9"
   },
   "dependencies": {
     "lodash.sortby": "^4.7.0"
