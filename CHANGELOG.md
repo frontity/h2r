@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/frontity/h2r/compare/v1.3.3...v1.3.4) (2018-10-26)
+
+
+### Bug Fixes
+
+* **semantic-release:** update semantic-release and lazyload ([32b8405](https://github.com/frontity/h2r/commit/32b8405))
+
 ## [1.3.3](https://github.com/frontity/h2r/compare/v1.3.2...v1.3.3) (2018-10-05)
 
 
