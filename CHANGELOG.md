@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/frontity/h2r/compare/v1.3.4...v1.3.5) (2018-11-28)
+
+
+### Bug Fixes
+
+* **youtube:** fixes regexp on youtube processor ([8493dca](https://github.com/frontity/h2r/commit/8493dca))
+
 ## [1.3.4](https://github.com/frontity/h2r/compare/v1.3.3...v1.3.4) (2018-10-26)
 
 
