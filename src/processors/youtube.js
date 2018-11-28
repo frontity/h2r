@@ -3,7 +3,7 @@ import LazyYoutube from '../components/LazyYoutube';
 export default {
   test: ({ component, props }) =>
     component === 'iframe' &&
-    (/youtube/.test(props.src) || /youtube/.test(props['data-src'])),
+    (/youtube.com/.test(props.src) || /youtube.com/.test(props['data-src'])),
   process: (element, { placeholder }) => {
     const { props } = element;
 
