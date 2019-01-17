@@ -1,3 +1,10 @@
+## [1.3.6](https://github.com/frontity/h2r/compare/v1.3.5...v1.3.6) (2019-01-17)
+
+
+### Bug Fixes
+
+* **processors:** remove style prop if the value is an empty string ([ea144a6](https://github.com/frontity/h2r/commit/ea144a6))
+
 ## [1.3.5](https://github.com/frontity/h2r/compare/v1.3.4...v1.3.5) (2018-11-28)
 
 
